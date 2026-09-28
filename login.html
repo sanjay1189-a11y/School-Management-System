@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>EduManage | Login</title><link rel="stylesheet" href="css/style.css"></head>
+<body class="auth-page">
+<main class="auth-shell">
+  <section class="auth-brand-panel"><div class="brand-icon big">🎓</div><h1>EduManage</h1><p>School Management System</p><div class="auth-feature"><span>✓</span><div><strong>One connected school dashboard</strong><small>Students, teachers, attendance, grades, fees and schedules.</small></div></div><div class="auth-feature"><span>✓</span><div><strong>Responsive by design</strong><small>Use it on desktop, tablet or mobile.</small></div></div></section>
+  <section class="auth-card">
+    <div class="auth-header"><div><div class="page-kicker">SECURE ACCESS</div><h2>Welcome back</h2><p>Sign in to access your school dashboard.</p></div><a class="auth-link" href="register.html">Create account</a></div>
+    <div id="authMessage" class="auth-message" hidden></div>
+    <form id="loginForm">
+      <div class="form-group"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="username" required placeholder="you@school.com"></div>
+      <div class="form-group"><label for="password">Password</label><div class="password-wrap"><input id="password" name="password" type="password" autocomplete="current-password" required placeholder="Enter password"><button type="button" class="password-toggle" onclick="togglePassword()">Show</button></div></div>
+      <div class="form-group"><label for="role">Role</label><select id="role" name="role"><option>Admin</option><option>Teacher</option><option>Parent</option></select></div>
+      <button id="loginBtn" class="btn btn-primary auth-submit" type="submit">Login to Dashboard</button>
+    </form>
+    <div class="demo-box"><strong>Demo accounts</strong><div>Admin: admin@school.com / admin123</div><div>Teacher: teacher@school.com / teacher123</div><div>Parent: parent@school.com / parent123</div></div>
+  </section>
+</main>
+<script src="js/auth.js"></script><script>
+function togglePassword(){const x=document.getElementById('password'),b=document.querySelector('.password-toggle');x.type=x.type==='password'?'text':'password';b.textContent=x.type==='password'?'Show':'Hide';}
+(function(){const p=new URLSearchParams(location.search);if(p.get('email'))document.getElementById('email').value=p.get('email');if(p.get('role'))document.getElementById('role').value=p.get('role');if(p.get('registered'))showMessage('Account created. Sign in with your new credentials.','success');if(p.get('loggedout'))showMessage('You have been logged out.','success');
+ document.getElementById('loginForm').addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.target),btn=document.getElementById('loginBtn');btn.disabled=true;btn.textContent='Signing in…';setTimeout(()=>{if(EduAuth.login(f.get('email'),f.get('password'),f.get('role'))){location.replace('index.html')}else{btn.disabled=false;btn.textContent='Login to Dashboard';showMessage('Invalid credentials or selected role.','error')}},120);});
+ function showMessage(msg,type){const el=document.getElementById('authMessage');el.hidden=false;el.className='auth-message '+type;el.textContent=msg;}
+})();
+</script></body></html>

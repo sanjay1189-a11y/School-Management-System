@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduManage | School Management System</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-icon">🎓</div>
+        <div><strong>EduManage</strong><small>School ERP</small></div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">📊</span><span>Dashboard</span></button>
+        <button class="nav-item" data-page="students"><span class="nav-icon">👨‍🎓</span><span>Students</span></button>
+        <button class="nav-item" data-page="teachers"><span class="nav-icon">👩‍🏫</span><span>Teachers</span></button>
+        <button class="nav-item" data-page="classes"><span class="nav-icon">🏫</span><span>Classes & Sections</span></button>
+        <button class="nav-item" data-page="attendance"><span class="nav-icon">✓</span><span>Attendance</span></button>
+        <button class="nav-item" data-page="grades"><span class="nav-icon">📝</span><span>Grades</span></button>
+        <button class="nav-item" data-page="fees"><span class="nav-icon">₹</span><span>Fee Management</span></button>
+        <button class="nav-item" data-page="timetable"><span class="nav-icon">🕐</span><span>Timetable</span></button>
+        <button class="nav-item" data-page="reports"><span class="nav-icon">📄</span><span>Reports & Export</span></button>
+        <button class="nav-item" data-page="exams"><span class="nav-icon">📅</span><span>Exam Schedule</span></button>
+        <button class="nav-item" data-page="communications"><span class="nav-icon">💬</span><span>Parent Communication</span></button>
+        <button class="nav-item" data-page="receipts"><span class="nav-icon">🧾</span><span>Fee Receipts</span></button>
+        <button class="nav-item" data-page="photos"><span class="nav-icon">🖼</span><span>Student Photos</span></button>
+        <button class="nav-item" data-page="notifications"><span class="nav-icon">🔔</span><span>Notifications</span></button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-mini">
+          <div class="avatar user-initials">AU</div>
+          <div><strong class="user-name">Admin User</strong><small class="user-role">Administrator</small></div>
+        </div>
+        <button id="logoutBtn" class="logout-btn">↪ Logout</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="top-left">
+          <button class="mobile-menu" id="mobileMenu">☰</button>
+          <div>
+            <h1 id="pageTitle">Dashboard</h1>
+            <p id="pageSubtitle">School overview and statistics</p>
+          </div>
+        </div>
+        <div class="top-actions">
+          <span class="date-pill" id="today"></span>
+          <button class="icon-btn" id="themeBtn" title="Toggle dark mode">◐</button>
+        </div>
+      </header>
+
+      <section id="content" class="content"></section>
+    </main>
+  </div>
+
+  <div id="sidebarOverlay" class="sidebar-overlay" aria-hidden="true"></div>
+  <div id="modalRoot"></div>
+  <div id="toast" class="toast"></div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/enhancements.js"></script>
+  <script src="js/phase8.js"></script>
+</body>
+</html>
